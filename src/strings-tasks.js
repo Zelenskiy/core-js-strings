@@ -81,7 +81,6 @@ function getFirstChar(value) {
 function removeLeadingAndTrailingWhitespaces(value) {
   return value.trim();
 }
-
 /**
  * Removes only leading whitespace characters from the string.
  *
@@ -93,10 +92,9 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   removeLeadingWhitespaces('cat ') => 'cat '
  *   removeLeadingWhitespaces('\t\t\tHello, World! ') => 'Hello, World! '
  */
-function removeLeadingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeLeadingWhitespaces(value) {
+  return value.replace(/^\s+/, '');
 }
-
 /**
  * Removes only trailing whitespace characters from the string.
  *
@@ -108,10 +106,9 @@ function removeLeadingWhitespaces(/* value */) {
  *   removeTrailingWhitespaces('cat ') => 'cat'
  *   removeTrailingWhitespaces('\t\t\tHello, World! ') => '\t\t\tHello, World!'
  */
-function removeTrailingWhitespaces(/* value */) {
-  throw new Error('Not implemented');
+function removeTrailingWhitespaces(value) {
+  return value.replace(/\s+$/, '');
 }
-
 /**
  * Returns a string that is repeated the specified number of times.
  *
@@ -125,10 +122,9 @@ function removeTrailingWhitespaces(/* value */) {
  *   repeatString('', 3) => ''
  *   repeatString('abc', -2) => ''
  */
-function repeatString(/* str, times */) {
-  throw new Error('Not implemented');
+function repeatString(str, times) {
+  return times > 0 ? str.repeat(times) : '';
 }
-
 /**
  * Remove the first occurrence of a substring from a string.
  *
@@ -141,10 +137,9 @@ function repeatString(/* str, times */) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  return str.replace(value, '');
 }
-
 /**
  * Remove the last occurrence of a substring from a string.
  *
@@ -157,10 +152,15 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  const lastIndex = str.lastIndexOf(value);
+  if (lastIndex !== -1) {
+    const beforeLastOccurrence = str.slice(0, lastIndex);
+    const afterLastOccurrence = str.slice(lastIndex + value.length);
+    return beforeLastOccurrence + afterLastOccurrence;
+  }
+  return str;
 }
-
 /**
  * Calculate the sum of character codes of the given string.
  *
@@ -176,7 +176,6 @@ function removeLastOccurrences(/* str, value */) {
 function sumOfCodes(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Checks if a string starts with a specific substring.
  *
@@ -191,7 +190,6 @@ function sumOfCodes(/* str */) {
 function startsWith(/* str, substr */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Checks if a string ends with a specific substring.
  *
@@ -206,7 +204,6 @@ function startsWith(/* str, substr */) {
 function endsWith(/* str, substr */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Returns a time string in the "mm:ss" format.
  *
@@ -223,7 +220,6 @@ function endsWith(/* str, substr */) {
 function formatTime(/* minutes, seconds */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Returns a string in reverse order.
  *
@@ -237,7 +233,6 @@ function formatTime(/* minutes, seconds */) {
 function reverseString(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Returns a string with characters in alphabetical order.
  *
@@ -252,7 +247,6 @@ function reverseString(/* str */) {
 function orderAlphabetically(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Checks if a given string contains a specified substring.
  *
@@ -268,7 +262,6 @@ function orderAlphabetically(/* str */) {
 function containsSubstring(/* str, substring */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Returns the number of vowels in the string.
  * Vowels: 'a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'.
@@ -286,7 +279,6 @@ function containsSubstring(/* str, substring */) {
 function countVowels(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Returns true if the string is a palindrome; otherwise false.
  * https://en.wikipedia.org/wiki/Palindrome
@@ -303,7 +295,6 @@ function countVowels(/* str */) {
 function isPalindrome(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Find the longest word in the sentence. If there are multiple longest words,
  * the function returns the first one encountered.
@@ -319,7 +310,6 @@ function isPalindrome(/* str */) {
 function findLongestWord(/* sentence */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Returns the string where each word is reversed.
  *
@@ -333,7 +323,6 @@ function findLongestWord(/* sentence */) {
 function reverseWords(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Inverts the case of each character in the given string.
  *
@@ -348,7 +337,6 @@ function reverseWords(/* str */) {
 function invertCase(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Returns the result of string template and given parameters firstName and lastName.
  * Please do not use concatenation, use template string :
@@ -365,7 +353,6 @@ function invertCase(/* str */) {
 function getStringFromTemplate(/* firstName, lastName */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Extracts a name from template string 'Hello, First_Name Last_Name!'.
  *
@@ -379,7 +366,6 @@ function getStringFromTemplate(/* firstName, lastName */) {
 function extractNameFromTemplate(/* value */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Remove the first and last angle brackets from tag string
  *
@@ -394,7 +380,6 @@ function extractNameFromTemplate(/* value */) {
 function unbracketTag(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Extracts e-mails from single string with e-mails list delimited by semicolons
  *
@@ -413,7 +398,6 @@ function unbracketTag(/* str */) {
 function extractEmails(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Encode specified string with ROT13 cipher
  * See details:  https://en.wikipedia.org/wiki/ROT13
@@ -433,7 +417,6 @@ function extractEmails(/* str */) {
 function encodeToRot13(/* str */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Returns playid card id.
  *
@@ -461,7 +444,6 @@ function encodeToRot13(/* str */) {
 function getCardId(/* value */) {
   throw new Error('Not implemented');
 }
-
 module.exports = {
   getStringLength,
   isString,
