@@ -4,7 +4,6 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String   *
  *                                                                                           *
  ******************************************************************************************* */
-
 /**
  * Returns the length of the given string.
  *
@@ -22,7 +21,6 @@
 function getStringLength(/* value */) {
   throw new Error('Not implemented');
 }
-
 /**
  * Returns true if the value is a string, otherwise returns false.
  *
