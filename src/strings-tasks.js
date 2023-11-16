@@ -209,8 +209,15 @@ function startsWith(str, substr) {
  *   endsWith('Hello World', 'World') => true
  *   endsWith('Hello World', 'Hello') => false
  */
-function endsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function endsWith(str, substr) {
+  if (substr.length === 0) {
+    return true;
+  }
+  if (substr.length > str.length) {
+    return false;
+  }
+  const endOfString = str.slice(-substr.length);
+  return endOfString.toLowerCase() === substr.toLowerCase();
 }
 /**
  * Returns a time string in the "mm:ss" format.
@@ -225,8 +232,10 @@ function endsWith(/* str, substr */) {
  *   formatTime(0, 45) => "00:45"
  *   formatTime(0, 0) => "00:00"
  */
-function formatTime(/* minutes, seconds */) {
-  throw new Error('Not implemented');
+function formatTime(minutes, seconds) {
+  const formattedMinutes = String(minutes).padStart(2, '0');
+  const formattedSeconds = String(seconds).padStart(2, '0');
+  return `${formattedMinutes}:${formattedSeconds}`;
 }
 /**
  * Returns a string in reverse order.
