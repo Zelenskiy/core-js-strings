@@ -199,8 +199,7 @@ function sumOfCodes(str) {
  *   startsWith('Hello World', 'Hello') => true
  */
 function startsWith(str, substr) {
-  const startOfString = str.slice(0, substr.length);
-  return startOfString === substr;
+  return str.startsWith(substr);
 }
 /**
  * Checks if a string ends with a specific substring.
@@ -214,14 +213,7 @@ function startsWith(str, substr) {
  *   endsWith('Hello World', 'Hello') => false
  */
 function endsWith(str, substr) {
-  if (substr.length === 0) {
-    return true;
-  }
-  if (substr.length > str.length) {
-    return false;
-  }
-  const endOfString = str.slice(-substr.length);
-  return endOfString === substr;
+  return str.endsWith(substr);
 }
 /**
  * Returns a time string in the "mm:ss" format.
@@ -285,7 +277,7 @@ function orderAlphabetically(str) {
  *   containsSubstring('12345', '34') => true
  */
 function containsSubstring(str, substring) {
-  return str.indexOf(substring) > -1;
+  return str.includes(substring);
 }
 /**
  * Returns the number of vowels in the string.
