@@ -51,7 +51,7 @@ function isString(value) {
  *   concatenateStrings('', 'bb') => 'bb'
  */
 function concatenateStrings(value1, value2) {
-  return value1 + value2;
+  return value1.concat(value2);
 }
 /**
  * Returns the first character of the given string.
@@ -65,7 +65,7 @@ function concatenateStrings(value1, value2) {
  *   getFirstChar('') => ''
  */
 function getFirstChar(value) {
-  return value.slice(0, 1);
+  return value.charAt(0);
 }
 /**
  * Removes leading and trailing whitespace characters from the string.
@@ -93,7 +93,7 @@ function removeLeadingAndTrailingWhitespaces(value) {
  *   removeLeadingWhitespaces('\t\t\tHello, World! ') => 'Hello, World! '
  */
 function removeLeadingWhitespaces(value) {
-  return value.replace(/^\s+/, '');
+  return value.trimStart();
 }
 /**
  * Removes only trailing whitespace characters from the string.
@@ -107,7 +107,7 @@ function removeLeadingWhitespaces(value) {
  *   removeTrailingWhitespaces('\t\t\tHello, World! ') => '\t\t\tHello, World!'
  */
 function removeTrailingWhitespaces(value) {
-  return value.replace(/\s+$/, '');
+  return value.trimEnd();
 }
 /**
  * Returns a string that is repeated the specified number of times.
@@ -138,7 +138,11 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
 function removeFirstOccurrences(str, value) {
-  return str.replace(value, '');
+  const index = str.indexOf(value);
+  if (index !== -1) {
+    return str.slice(0, index) + str.slice(index + value.length);
+  }
+  return str;
 }
 /**
  * Remove the last occurrence of a substring from a string.
