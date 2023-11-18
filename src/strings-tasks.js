@@ -217,7 +217,7 @@ function endsWith(str, substr) {
     return false;
   }
   const endOfString = str.slice(-substr.length);
-  return endOfString.toLowerCase() === substr.toLowerCase();
+  return endOfString === substr;
 }
 /**
  * Returns a time string in the "mm:ss" format.
@@ -247,8 +247,12 @@ function formatTime(minutes, seconds) {
  *   reverseString('abcdef') => 'fedcba'
  *   reverseString('12345') => '54321'
  */
-function reverseString(/* str */) {
-  throw new Error('Not implemented');
+function reverseString(str) {
+  let res = '';
+  for (let i = str.length - 1; i >= 0; i -= 1) {
+    res += str[i];
+  }
+  return res;
 }
 /**
  * Returns a string with characters in alphabetical order.
