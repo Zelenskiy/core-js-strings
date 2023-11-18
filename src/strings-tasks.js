@@ -315,9 +315,8 @@ function countVowels(str) {
  *   isPalindrome('apple') => false
  *   isPalindrome('No lemon, no melon') => true
  */
-function isPalindrome(str) {
-  const cleanedStr = str.replace(/\s/g, '').toLowerCase();
-  return cleanedStr === cleanedStr.split('').reverse().join('');
+function isPalindrome(/* str */) {
+  throw new Error('Not implemented');
 }
 /**
  * Find the longest word in the sentence. If there are multiple longest words,
