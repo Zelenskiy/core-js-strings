@@ -332,14 +332,9 @@ function isPalindrome(str) {
  *   findLongestWord('No words here') => 'words'
  */
 function findLongestWord(sentence) {
-  const words = sentence.split(' ');
-  let longestWord = '';
-  // eslint-disable-next-line no-restricted-syntax
-  for (const word of words) {
-    if (word.length > longestWord.length) {
-      longestWord = word;
-    }
-  }
+  const longestWord = sentence.split(' ').reduce((prevWord, currentWord) => {
+    return currentWord.length > prevWord.length ? currentWord : prevWord;
+  }, '');
   return longestWord;
 }
 /**
@@ -352,8 +347,11 @@ function findLongestWord(sentence) {
  *   reverseWords('Hello World') => 'olleH dlroW'
  *   reverseWords('The Quick Brown Fox') => 'ehT kciuQ nworB xoF'
  */
-function reverseWords(/* str */) {
-  throw new Error('Not implemented');
+function reverseWords(str) {
+  const reversedWords = str
+    .split(' ')
+    .map((word) => word.split('').reverse().join(''));
+  return reversedWords.join(' ');
 }
 /**
  * Inverts the case of each character in the given string.
